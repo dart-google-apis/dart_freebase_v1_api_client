@@ -62,12 +62,12 @@ class TopicLookup {
 }
 
 class TopicLookupProperty {
-  TopicStatslinkcount /freebase/object_profile/linkcount;
+  TopicStatslinkcount _freebase_object_profile_linkcount;
 
   /** Create new TopicLookupProperty from JSON data */
   TopicLookupProperty.fromJson(Map json) {
     if (json.containsKey("/freebase/object_profile/linkcount")) {
-      /freebase/object_profile/linkcount = new TopicStatslinkcount.fromJson(json["/freebase/object_profile/linkcount"]);
+      _freebase_object_profile_linkcount = new TopicStatslinkcount.fromJson(json["/freebase/object_profile/linkcount"]);
     }
   }
 
@@ -75,8 +75,8 @@ class TopicLookupProperty {
   Map toJson() {
     var output = new Map();
 
-    if (/freebase/object_profile/linkcount != null) {
-      output["/freebase/object_profile/linkcount"] = /freebase/object_profile/linkcount.toJson();
+    if (_freebase_object_profile_linkcount != null) {
+      output["/freebase/object_profile/linkcount"] = _freebase_object_profile_linkcount.toJson();
     }
 
     return output;

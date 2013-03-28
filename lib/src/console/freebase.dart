@@ -126,7 +126,7 @@ class Freebase extends ConsoleClient {
     }
 
     var response;
-    response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
+    response = this.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
     response
       .then((data) => completer.complete(data))
       .catchError((e) { completer.completeError(e); return true; });
@@ -202,7 +202,7 @@ class Freebase extends ConsoleClient {
     }
 
     var response;
-    response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
+    response = this.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
     response
       .then((data) => completer.complete(data))
       .catchError((e) { completer.completeError(e); return true; });
@@ -253,7 +253,7 @@ class Freebase extends ConsoleClient {
     }
 
     var response;
-    response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
+    response = this.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
     response
       .then((data) => completer.complete(data))
       .catchError((e) { completer.completeError(e); return true; });
