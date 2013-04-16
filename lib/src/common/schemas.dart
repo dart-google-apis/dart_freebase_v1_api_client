@@ -3,18 +3,18 @@ part of freebase_v1_api_client;
 class ContentserviceGet {
 
   /** The text requested. */
-  String result;
+  core.String result;
 
   /** Create new ContentserviceGet from JSON data */
-  ContentserviceGet.fromJson(Map json) {
+  ContentserviceGet.fromJson(core.Map json) {
     if (json.containsKey("result")) {
       result = json["result"];
     }
   }
 
   /** Create JSON Object for ContentserviceGet */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (result != null) {
       output["result"] = result;
@@ -24,16 +24,16 @@ class ContentserviceGet {
   }
 
   /** Return String representation of ContentserviceGet */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicLookup {
-  String id;
+  core.String id;
   TopicLookupProperty property;
 
   /** Create new TopicLookup from JSON data */
-  TopicLookup.fromJson(Map json) {
+  TopicLookup.fromJson(core.Map json) {
     if (json.containsKey("id")) {
       id = json["id"];
     }
@@ -43,8 +43,8 @@ class TopicLookup {
   }
 
   /** Create JSON Object for TopicLookup */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (id != null) {
       output["id"] = id;
@@ -57,7 +57,7 @@ class TopicLookup {
   }
 
   /** Return String representation of TopicLookup */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -65,15 +65,15 @@ class TopicLookupProperty {
   TopicStatslinkcount _freebase_object_profile_linkcount;
 
   /** Create new TopicLookupProperty from JSON data */
-  TopicLookupProperty.fromJson(Map json) {
+  TopicLookupProperty.fromJson(core.Map json) {
     if (json.containsKey("/freebase/object_profile/linkcount")) {
       _freebase_object_profile_linkcount = new TopicStatslinkcount.fromJson(json["/freebase/object_profile/linkcount"]);
     }
   }
 
   /** Create JSON Object for TopicLookupProperty */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (_freebase_object_profile_linkcount != null) {
       output["/freebase/object_profile/linkcount"] = _freebase_object_profile_linkcount.toJson();
@@ -83,18 +83,18 @@ class TopicLookupProperty {
   }
 
   /** Return String representation of TopicLookupProperty */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicPropertyvalue {
-  num count;
-  String status;
-  List<TopicValue> values;
-  String valuetype;
+  core.num count;
+  core.String status;
+  core.List<TopicValue> values;
+  core.String valuetype;
 
   /** Create new TopicPropertyvalue from JSON data */
-  TopicPropertyvalue.fromJson(Map json) {
+  TopicPropertyvalue.fromJson(core.Map json) {
     if (json.containsKey("count")) {
       count = json["count"];
     }
@@ -113,8 +113,8 @@ class TopicPropertyvalue {
   }
 
   /** Create JSON Object for TopicPropertyvalue */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (count != null) {
       output["count"] = count;
@@ -123,7 +123,7 @@ class TopicPropertyvalue {
       output["status"] = status;
     }
     if (values != null) {
-      output["values"] = new List();
+      output["values"] = new core.List();
       values.forEach((item) {
         output["values"].add(item.toJson());
       });
@@ -136,16 +136,16 @@ class TopicPropertyvalue {
   }
 
   /** Return String representation of TopicPropertyvalue */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicStatslinkcount {
-  String type;
-  List<TopicStatslinkcountValues> values;
+  core.String type;
+  core.List<TopicStatslinkcountValues> values;
 
   /** Create new TopicStatslinkcount from JSON data */
-  TopicStatslinkcount.fromJson(Map json) {
+  TopicStatslinkcount.fromJson(core.Map json) {
     if (json.containsKey("type")) {
       type = json["type"];
     }
@@ -158,14 +158,14 @@ class TopicStatslinkcount {
   }
 
   /** Create JSON Object for TopicStatslinkcount */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (type != null) {
       output["type"] = type;
     }
     if (values != null) {
-      output["values"] = new List();
+      output["values"] = new core.List();
       values.forEach((item) {
         output["values"].add(item.toJson());
       });
@@ -175,17 +175,17 @@ class TopicStatslinkcount {
   }
 
   /** Return String representation of TopicStatslinkcount */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicStatslinkcountValues {
-  int count;
-  String id;
-  List<TopicStatslinkcountValuesValues> values;
+  core.int count;
+  core.String id;
+  core.List<TopicStatslinkcountValuesValues> values;
 
   /** Create new TopicStatslinkcountValues from JSON data */
-  TopicStatslinkcountValues.fromJson(Map json) {
+  TopicStatslinkcountValues.fromJson(core.Map json) {
     if (json.containsKey("count")) {
       count = json["count"];
     }
@@ -201,8 +201,8 @@ class TopicStatslinkcountValues {
   }
 
   /** Create JSON Object for TopicStatslinkcountValues */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (count != null) {
       output["count"] = count;
@@ -211,7 +211,7 @@ class TopicStatslinkcountValues {
       output["id"] = id;
     }
     if (values != null) {
-      output["values"] = new List();
+      output["values"] = new core.List();
       values.forEach((item) {
         output["values"].add(item.toJson());
       });
@@ -221,17 +221,17 @@ class TopicStatslinkcountValues {
   }
 
   /** Return String representation of TopicStatslinkcountValues */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicStatslinkcountValuesValues {
-  int count;
-  String id;
-  List<TopicStatslinkcountValuesValuesValues> values;
+  core.int count;
+  core.String id;
+  core.List<TopicStatslinkcountValuesValuesValues> values;
 
   /** Create new TopicStatslinkcountValuesValues from JSON data */
-  TopicStatslinkcountValuesValues.fromJson(Map json) {
+  TopicStatslinkcountValuesValues.fromJson(core.Map json) {
     if (json.containsKey("count")) {
       count = json["count"];
     }
@@ -247,8 +247,8 @@ class TopicStatslinkcountValuesValues {
   }
 
   /** Create JSON Object for TopicStatslinkcountValuesValues */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (count != null) {
       output["count"] = count;
@@ -257,7 +257,7 @@ class TopicStatslinkcountValuesValues {
       output["id"] = id;
     }
     if (values != null) {
-      output["values"] = new List();
+      output["values"] = new core.List();
       values.forEach((item) {
         output["values"].add(item.toJson());
       });
@@ -267,16 +267,16 @@ class TopicStatslinkcountValuesValues {
   }
 
   /** Return String representation of TopicStatslinkcountValuesValues */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicStatslinkcountValuesValuesValues {
-  int count;
-  String id;
+  core.int count;
+  core.String id;
 
   /** Create new TopicStatslinkcountValuesValuesValues from JSON data */
-  TopicStatslinkcountValuesValuesValues.fromJson(Map json) {
+  TopicStatslinkcountValuesValuesValues.fromJson(core.Map json) {
     if (json.containsKey("count")) {
       count = json["count"];
     }
@@ -286,8 +286,8 @@ class TopicStatslinkcountValuesValuesValues {
   }
 
   /** Create JSON Object for TopicStatslinkcountValuesValuesValues */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (count != null) {
       output["count"] = count;
@@ -300,23 +300,23 @@ class TopicStatslinkcountValuesValuesValues {
   }
 
   /** Return String representation of TopicStatslinkcountValuesValuesValues */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicValue {
   TopicValueCitation citation;
-  String creator;
-  String dataset;
-  String id;
-  String lang;
-  String project;
+  core.String creator;
+  core.String dataset;
+  core.String id;
+  core.String lang;
+  core.String project;
   TopicValueProperty property;
-  String text;
-  String timestamp;
+  core.String text;
+  core.String timestamp;
 
   /** Create new TopicValue from JSON data */
-  TopicValue.fromJson(Map json) {
+  TopicValue.fromJson(core.Map json) {
     if (json.containsKey("citation")) {
       citation = new TopicValueCitation.fromJson(json["citation"]);
     }
@@ -347,8 +347,8 @@ class TopicValue {
   }
 
   /** Create JSON Object for TopicValue */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (citation != null) {
       output["citation"] = citation.toJson();
@@ -382,36 +382,36 @@ class TopicValue {
   }
 
   /** Return String representation of TopicValue */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicValueProperty {
 
   /** Create new TopicValueProperty from JSON data */
-  TopicValueProperty.fromJson(Map json) {
+  TopicValueProperty.fromJson(core.Map json) {
   }
 
   /** Create JSON Object for TopicValueProperty */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
 
     return output;
   }
 
   /** Return String representation of TopicValueProperty */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class TopicValueCitation {
-  String provider;
-  String statement;
-  String uri;
+  core.String provider;
+  core.String statement;
+  core.String uri;
 
   /** Create new TopicValueCitation from JSON data */
-  TopicValueCitation.fromJson(Map json) {
+  TopicValueCitation.fromJson(core.Map json) {
     if (json.containsKey("provider")) {
       provider = json["provider"];
     }
@@ -424,8 +424,8 @@ class TopicValueCitation {
   }
 
   /** Create JSON Object for TopicValueCitation */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (provider != null) {
       output["provider"] = provider;
@@ -441,7 +441,7 @@ class TopicValueCitation {
   }
 
   /** Return String representation of TopicValueCitation */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 

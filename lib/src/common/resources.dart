@@ -21,13 +21,13 @@ class TextResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<ContentserviceGet> get(String id, {String format, int maxlength, Map optParams}) {
-    var completer = new Completer();
+  async.Future<ContentserviceGet> get(core.String id, {core.String format, core.int maxlength, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "text{/id*}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (format != null && !["html", "plain", "raw"].contains(format)) {
       paramErrors.add("Allowed values for format: html, plain, raw");
     }
@@ -82,13 +82,13 @@ class TopicResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<TopicLookup> lookup(String id, {String dateline, String filter, String lang, int limit, bool raw, Map optParams}) {
-    var completer = new Completer();
+  async.Future<TopicLookup> lookup(core.String id, {core.String dateline, core.String filter, core.String lang, core.int limit, core.bool raw, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "topic{/id*}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (dateline != null) queryParams["dateline"] = dateline;
     if (filter != null) queryParams["filter"] = filter;
     if (id == null) paramErrors.add("id is required");
