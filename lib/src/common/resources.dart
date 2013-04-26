@@ -1,8 +1,8 @@
 part of freebase_v1_api_client;
 
-class TextResource extends Resource {
+class TextResource_ extends Resource {
 
-  TextResource(Client client) : super(client) {
+  TextResource_(Client client) : super(client) {
   }
 
   /**
@@ -44,7 +44,7 @@ class TextResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -57,9 +57,9 @@ class TextResource extends Resource {
   }
 }
 
-class TopicResource extends Resource {
+class TopicResource_ extends Resource {
 
-  TopicResource(Client client) : super(client) {
+  TopicResource_(Client client) : super(client) {
   }
 
   /**
@@ -105,7 +105,7 @@ class TopicResource extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 

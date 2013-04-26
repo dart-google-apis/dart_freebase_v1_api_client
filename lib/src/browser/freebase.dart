@@ -4,10 +4,10 @@ part of freebase_v1_api_browser;
 /** Topic and MQL APIs provide you structured access to Freebase data. */
 class Freebase extends BrowserClient {
 
-  TextResource _text;
-  TextResource get text => _text;
-  TopicResource _topic;
-  TopicResource get topic => _topic;
+  TextResource_ _text;
+  TextResource_ get text => _text;
+  TopicResource_ _topic;
+  TopicResource_ get topic => _topic;
 
   /** OAuth Scope2: Sign in to Freebase with your account */
   static const core.String FREEBASE_SCOPE = "https://www.googleapis.com/auth/freebase";
@@ -64,8 +64,8 @@ class Freebase extends BrowserClient {
   Freebase([oauth.OAuth2 auth]) : super(auth) {
     basePath = "/freebase/v1/";
     rootUrl = "https://www.googleapis.com:443/";
-    _text = new TextResource(this);
-    _topic = new TopicResource(this);
+    _text = new TextResource_(this);
+    _topic = new TopicResource_(this);
   }
 
   /**
@@ -121,7 +121,7 @@ class Freebase extends BrowserClient {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -197,7 +197,7 @@ class Freebase extends BrowserClient {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 
@@ -248,7 +248,7 @@ class Freebase extends BrowserClient {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
       return completer.future;
     }
 

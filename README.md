@@ -8,7 +8,7 @@ Auto-generated client library for accessing the freebase v1 API.
 
 Topic and MQL APIs provide you structured access to Freebase data.
 
-Official API documentation: http://wiki.freebase.com/wiki/API
+Official API documentation: https://developers.google.com/freebase/
 
 For web applications:
 ```
