@@ -63,7 +63,7 @@ class Freebase extends BrowserClient {
 
   Freebase([oauth.OAuth2 auth]) : super(auth) {
     basePath = "/freebase/v1/";
-    rootUrl = "https://www.googleapis.com:443/";
+    rootUrl = "https://www.googleapis.com/";
     _text = new TextResource_(this);
     _topic = new TopicResource_(this);
   }
