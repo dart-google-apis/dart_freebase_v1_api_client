@@ -22,7 +22,6 @@ class TextResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<ContentserviceGet> get(core.String id, {core.String format, core.int maxlength, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "text{/id*}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -44,16 +43,13 @@ class TextResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new ContentserviceGet.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new ContentserviceGet.fromJson(data));
   }
 }
 
@@ -83,7 +79,6 @@ class TopicResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<TopicLookup> lookup(core.String id, {core.String dateline, core.String filter, core.String lang, core.int limit, core.bool raw, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "topic{/id*}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -105,16 +100,13 @@ class TopicResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new TopicLookup.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new TopicLookup.fromJson(data));
   }
 }
 

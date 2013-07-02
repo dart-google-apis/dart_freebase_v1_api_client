@@ -96,7 +96,6 @@ class Freebase extends ConsoleClient {
    * [optParams] - Additional query parameters
    */
   async.Future<core.Map> image(core.String id, {core.String fallbackid, core.int maxheight, core.int maxwidth, core.String mode, core.bool pad, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "image{/id*}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -121,16 +120,12 @@ class Freebase extends ConsoleClient {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = this.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(data))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response;
   }
 
   /**
@@ -168,7 +163,6 @@ class Freebase extends ConsoleClient {
    * [optParams] - Additional query parameters
    */
   async.Future<core.Map> mqlread(core.String query, {core.String as_of_time, core.String callback, core.bool cost, core.String cursor, core.String dateline, core.bool html_escape, core.int indent, core.String lang, core.String uniqueness_failure, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "mqlread";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -197,16 +191,12 @@ class Freebase extends ConsoleClient {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = this.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(data))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response;
   }
 
   /**
@@ -227,7 +217,6 @@ class Freebase extends ConsoleClient {
    * [optParams] - Additional query parameters
    */
   async.Future<core.Map> mqlwrite(core.String query, {core.String callback, core.String dateline, core.int indent, core.String use_permission_of, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "mqlwrite";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -248,15 +237,11 @@ class Freebase extends ConsoleClient {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = this.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(data))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response;
   }
 }
