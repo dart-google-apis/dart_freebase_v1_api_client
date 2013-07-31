@@ -1,4 +1,4 @@
-part of freebase_v1_api_client;
+part of freebase_v1_api;
 
 class ContentserviceGet {
 
@@ -29,7 +29,9 @@ class ContentserviceGet {
 }
 
 class TopicLookup {
+
   core.String id;
+
   TopicLookupProperty property;
 
   /** Create new TopicLookup from JSON data */
@@ -62,6 +64,7 @@ class TopicLookup {
 }
 
 class TopicLookupProperty {
+
   TopicStatslinkcount _freebase_object_profile_linkcount;
 
   /** Create new TopicLookupProperty from JSON data */
@@ -88,9 +91,13 @@ class TopicLookupProperty {
 }
 
 class TopicPropertyvalue {
+
   core.num count;
+
   core.String status;
+
   core.List<TopicValue> values;
+
   core.String valuetype;
 
   /** Create new TopicPropertyvalue from JSON data */
@@ -102,10 +109,7 @@ class TopicPropertyvalue {
       status = json["status"];
     }
     if (json.containsKey("values")) {
-      values = [];
-      json["values"].forEach((item) {
-        values.add(new TopicValue.fromJson(item));
-      });
+      values = json["values"].map((valuesItem) => new TopicValue.fromJson(valuesItem)).toList();
     }
     if (json.containsKey("valuetype")) {
       valuetype = json["valuetype"];
@@ -123,10 +127,7 @@ class TopicPropertyvalue {
       output["status"] = status;
     }
     if (values != null) {
-      output["values"] = new core.List();
-      values.forEach((item) {
-        output["values"].add(item.toJson());
-      });
+      output["values"] = values.map((valuesItem) => valuesItem.toJson()).toList();
     }
     if (valuetype != null) {
       output["valuetype"] = valuetype;
@@ -141,7 +142,9 @@ class TopicPropertyvalue {
 }
 
 class TopicStatslinkcount {
+
   core.String type;
+
   core.List<TopicStatslinkcountValues> values;
 
   /** Create new TopicStatslinkcount from JSON data */
@@ -150,10 +153,7 @@ class TopicStatslinkcount {
       type = json["type"];
     }
     if (json.containsKey("values")) {
-      values = [];
-      json["values"].forEach((item) {
-        values.add(new TopicStatslinkcountValues.fromJson(item));
-      });
+      values = json["values"].map((valuesItem) => new TopicStatslinkcountValues.fromJson(valuesItem)).toList();
     }
   }
 
@@ -165,10 +165,7 @@ class TopicStatslinkcount {
       output["type"] = type;
     }
     if (values != null) {
-      output["values"] = new core.List();
-      values.forEach((item) {
-        output["values"].add(item.toJson());
-      });
+      output["values"] = values.map((valuesItem) => valuesItem.toJson()).toList();
     }
 
     return output;
@@ -180,8 +177,11 @@ class TopicStatslinkcount {
 }
 
 class TopicStatslinkcountValues {
+
   core.int count;
+
   core.String id;
+
   core.List<TopicStatslinkcountValuesValues> values;
 
   /** Create new TopicStatslinkcountValues from JSON data */
@@ -193,10 +193,7 @@ class TopicStatslinkcountValues {
       id = json["id"];
     }
     if (json.containsKey("values")) {
-      values = [];
-      json["values"].forEach((item) {
-        values.add(new TopicStatslinkcountValuesValues.fromJson(item));
-      });
+      values = json["values"].map((valuesItem) => new TopicStatslinkcountValuesValues.fromJson(valuesItem)).toList();
     }
   }
 
@@ -211,10 +208,7 @@ class TopicStatslinkcountValues {
       output["id"] = id;
     }
     if (values != null) {
-      output["values"] = new core.List();
-      values.forEach((item) {
-        output["values"].add(item.toJson());
-      });
+      output["values"] = values.map((valuesItem) => valuesItem.toJson()).toList();
     }
 
     return output;
@@ -226,8 +220,11 @@ class TopicStatslinkcountValues {
 }
 
 class TopicStatslinkcountValuesValues {
+
   core.int count;
+
   core.String id;
+
   core.List<TopicStatslinkcountValuesValuesValues> values;
 
   /** Create new TopicStatslinkcountValuesValues from JSON data */
@@ -239,10 +236,7 @@ class TopicStatslinkcountValuesValues {
       id = json["id"];
     }
     if (json.containsKey("values")) {
-      values = [];
-      json["values"].forEach((item) {
-        values.add(new TopicStatslinkcountValuesValuesValues.fromJson(item));
-      });
+      values = json["values"].map((valuesItem) => new TopicStatslinkcountValuesValuesValues.fromJson(valuesItem)).toList();
     }
   }
 
@@ -257,10 +251,7 @@ class TopicStatslinkcountValuesValues {
       output["id"] = id;
     }
     if (values != null) {
-      output["values"] = new core.List();
-      values.forEach((item) {
-        output["values"].add(item.toJson());
-      });
+      output["values"] = values.map((valuesItem) => valuesItem.toJson()).toList();
     }
 
     return output;
@@ -272,7 +263,9 @@ class TopicStatslinkcountValuesValues {
 }
 
 class TopicStatslinkcountValuesValuesValues {
+
   core.int count;
+
   core.String id;
 
   /** Create new TopicStatslinkcountValuesValuesValues from JSON data */
@@ -305,15 +298,26 @@ class TopicStatslinkcountValuesValuesValues {
 }
 
 class TopicValue {
+
   TopicValueCitation citation;
+
   core.String creator;
+
   core.String dataset;
+
   core.String id;
+
   core.String lang;
+
   core.String project;
-  TopicValueProperty property;
+
+  core.Map<core.String, TopicPropertyvalue> property;
+
   core.String text;
+
   core.String timestamp;
+
+  core.Object value;
 
   /** Create new TopicValue from JSON data */
   TopicValue.fromJson(core.Map json) {
@@ -336,13 +340,16 @@ class TopicValue {
       project = json["project"];
     }
     if (json.containsKey("property")) {
-      property = new TopicValueProperty.fromJson(json["property"]);
+      property = _mapMap(json["property"], (propertyItem) => new TopicPropertyvalue.fromJson(propertyItem));
     }
     if (json.containsKey("text")) {
       text = json["text"];
     }
     if (json.containsKey("timestamp")) {
       timestamp = json["timestamp"];
+    }
+    if (json.containsKey("value")) {
+      value = json["value"];
     }
   }
 
@@ -369,13 +376,16 @@ class TopicValue {
       output["project"] = project;
     }
     if (property != null) {
-      output["property"] = property.toJson();
+      output["property"] = _mapMap(property, (propertyItem) => propertyItem.toJson());
     }
     if (text != null) {
       output["text"] = text;
     }
     if (timestamp != null) {
       output["timestamp"] = timestamp;
+    }
+    if (value != null) {
+      output["value"] = value;
     }
 
     return output;
@@ -386,28 +396,12 @@ class TopicValue {
 
 }
 
-class TopicValueProperty {
-
-  /** Create new TopicValueProperty from JSON data */
-  TopicValueProperty.fromJson(core.Map json) {
-  }
-
-  /** Create JSON Object for TopicValueProperty */
-  core.Map toJson() {
-    var output = new core.Map();
-
-
-    return output;
-  }
-
-  /** Return String representation of TopicValueProperty */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
 class TopicValueCitation {
+
   core.String provider;
+
   core.String statement;
+
   core.String uri;
 
   /** Create new TopicValueCitation from JSON data */
@@ -445,3 +439,16 @@ class TopicValueCitation {
 
 }
 
+core.Map _mapMap(core.Map source, [core.Object convert(core.Object source) = null]) {
+  assert(source != null);
+  var result = new dart_collection.LinkedHashMap();
+  source.forEach((core.String key, value) {
+    assert(key != null);
+    if(convert == null) {
+      result[key] = value;
+    } else {
+      result[key] = convert(value);
+    }
+  });
+  return result;
+}

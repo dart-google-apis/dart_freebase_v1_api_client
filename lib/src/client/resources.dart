@@ -1,14 +1,17 @@
-part of freebase_v1_api_client;
+part of freebase_v1_api;
 
-class TextResource_ extends Resource {
+class TextResource_ {
 
-  TextResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  TextResource_(Client client) :
+      _client = client;
 
   /**
    * Returns blob attached to node at specified id as HTML
    *
    * [id] - The id of the item that you want data about
+   *   Repeated values: allowed
    *
    * [format] - Sanitizing transformation.
    *   Default: plain
@@ -21,7 +24,7 @@ class TextResource_ extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  async.Future<ContentserviceGet> get(core.String id, {core.String format, core.int maxlength, core.Map optParams}) {
+  async.Future<ContentserviceGet> get(core.List<core.String> id, {core.String format, core.int maxlength, core.Map optParams}) {
     var url = "text{/id*}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -53,19 +56,23 @@ class TextResource_ extends Resource {
   }
 }
 
-class TopicResource_ extends Resource {
+class TopicResource_ {
 
-  TopicResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  TopicResource_(Client client) :
+      _client = client;
 
   /**
    * Get properties and meta-data about a topic.
    *
    * [id] - The id of the item that you want data about.
+   *   Repeated values: allowed
    *
    * [dateline] - Determines how up-to-date the data returned is. A unix epoch time, a guid or a 'now'
    *
    * [filter] - A frebase domain, type or property id, 'suggest', 'commons', or 'all'. Filter the results and returns only appropriate properties.
+   *   Repeated values: allowed
    *
    * [lang] - The language you 'd like the content in - a freebase /type/lang language key.
    *   Default: en
@@ -78,7 +85,7 @@ class TopicResource_ extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  async.Future<TopicLookup> lookup(core.String id, {core.String dateline, core.String filter, core.String lang, core.int limit, core.bool raw, core.Map optParams}) {
+  async.Future<TopicLookup> lookup(core.List<core.String> id, {core.String dateline, core.List<core.String> filter, core.String lang, core.int limit, core.bool raw, core.Map optParams}) {
     var url = "topic{/id*}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
