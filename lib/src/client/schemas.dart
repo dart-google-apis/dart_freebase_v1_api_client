@@ -1,441 +1,243 @@
 part of freebase_v1_api;
 
-class ContentserviceGet {
+class ReconcileCandidate {
 
-  /** The text requested. */
-  core.String result;
+  /** Percentage likelihood that this candidate is the unique matching entity. Value will be between 0.0 and 1.0 */
+  core.num confidence;
 
-  /** Create new ContentserviceGet from JSON data */
-  ContentserviceGet.fromJson(core.Map json) {
-    if (json.containsKey("result")) {
-      result = json["result"];
-    }
-  }
-
-  /** Create JSON Object for ContentserviceGet */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (result != null) {
-      output["result"] = result;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of ContentserviceGet */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class TopicLookup {
-
-  core.String id;
-
-  TopicLookupProperty property;
-
-  /** Create new TopicLookup from JSON data */
-  TopicLookup.fromJson(core.Map json) {
-    if (json.containsKey("id")) {
-      id = json["id"];
-    }
-    if (json.containsKey("property")) {
-      property = new TopicLookupProperty.fromJson(json["property"]);
-    }
-  }
-
-  /** Create JSON Object for TopicLookup */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (id != null) {
-      output["id"] = id;
-    }
-    if (property != null) {
-      output["property"] = property.toJson();
-    }
-
-    return output;
-  }
-
-  /** Return String representation of TopicLookup */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class TopicLookupProperty {
-
-  TopicStatslinkcount _freebase_object_profile_linkcount;
-
-  /** Create new TopicLookupProperty from JSON data */
-  TopicLookupProperty.fromJson(core.Map json) {
-    if (json.containsKey("/freebase/object_profile/linkcount")) {
-      _freebase_object_profile_linkcount = new TopicStatslinkcount.fromJson(json["/freebase/object_profile/linkcount"]);
-    }
-  }
-
-  /** Create JSON Object for TopicLookupProperty */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (_freebase_object_profile_linkcount != null) {
-      output["/freebase/object_profile/linkcount"] = _freebase_object_profile_linkcount.toJson();
-    }
-
-    return output;
-  }
-
-  /** Return String representation of TopicLookupProperty */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class TopicPropertyvalue {
-
-  core.num count;
-
-  core.String status;
-
-  core.List<TopicValue> values;
-
-  core.String valuetype;
-
-  /** Create new TopicPropertyvalue from JSON data */
-  TopicPropertyvalue.fromJson(core.Map json) {
-    if (json.containsKey("count")) {
-      count = json["count"];
-    }
-    if (json.containsKey("status")) {
-      status = json["status"];
-    }
-    if (json.containsKey("values")) {
-      values = json["values"].map((valuesItem) => new TopicValue.fromJson(valuesItem)).toList();
-    }
-    if (json.containsKey("valuetype")) {
-      valuetype = json["valuetype"];
-    }
-  }
-
-  /** Create JSON Object for TopicPropertyvalue */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (count != null) {
-      output["count"] = count;
-    }
-    if (status != null) {
-      output["status"] = status;
-    }
-    if (values != null) {
-      output["values"] = values.map((valuesItem) => valuesItem.toJson()).toList();
-    }
-    if (valuetype != null) {
-      output["valuetype"] = valuetype;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of TopicPropertyvalue */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class TopicStatslinkcount {
-
-  core.String type;
-
-  core.List<TopicStatslinkcountValues> values;
-
-  /** Create new TopicStatslinkcount from JSON data */
-  TopicStatslinkcount.fromJson(core.Map json) {
-    if (json.containsKey("type")) {
-      type = json["type"];
-    }
-    if (json.containsKey("values")) {
-      values = json["values"].map((valuesItem) => new TopicStatslinkcountValues.fromJson(valuesItem)).toList();
-    }
-  }
-
-  /** Create JSON Object for TopicStatslinkcount */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (type != null) {
-      output["type"] = type;
-    }
-    if (values != null) {
-      output["values"] = values.map((valuesItem) => valuesItem.toJson()).toList();
-    }
-
-    return output;
-  }
-
-  /** Return String representation of TopicStatslinkcount */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class TopicStatslinkcountValues {
-
-  core.int count;
-
-  core.String id;
-
-  core.List<TopicStatslinkcountValuesValues> values;
-
-  /** Create new TopicStatslinkcountValues from JSON data */
-  TopicStatslinkcountValues.fromJson(core.Map json) {
-    if (json.containsKey("count")) {
-      count = json["count"];
-    }
-    if (json.containsKey("id")) {
-      id = json["id"];
-    }
-    if (json.containsKey("values")) {
-      values = json["values"].map((valuesItem) => new TopicStatslinkcountValuesValues.fromJson(valuesItem)).toList();
-    }
-  }
-
-  /** Create JSON Object for TopicStatslinkcountValues */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (count != null) {
-      output["count"] = count;
-    }
-    if (id != null) {
-      output["id"] = id;
-    }
-    if (values != null) {
-      output["values"] = values.map((valuesItem) => valuesItem.toJson()).toList();
-    }
-
-    return output;
-  }
-
-  /** Return String representation of TopicStatslinkcountValues */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class TopicStatslinkcountValuesValues {
-
-  core.int count;
-
-  core.String id;
-
-  core.List<TopicStatslinkcountValuesValuesValues> values;
-
-  /** Create new TopicStatslinkcountValuesValues from JSON data */
-  TopicStatslinkcountValuesValues.fromJson(core.Map json) {
-    if (json.containsKey("count")) {
-      count = json["count"];
-    }
-    if (json.containsKey("id")) {
-      id = json["id"];
-    }
-    if (json.containsKey("values")) {
-      values = json["values"].map((valuesItem) => new TopicStatslinkcountValuesValuesValues.fromJson(valuesItem)).toList();
-    }
-  }
-
-  /** Create JSON Object for TopicStatslinkcountValuesValues */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (count != null) {
-      output["count"] = count;
-    }
-    if (id != null) {
-      output["id"] = id;
-    }
-    if (values != null) {
-      output["values"] = values.map((valuesItem) => valuesItem.toJson()).toList();
-    }
-
-    return output;
-  }
-
-  /** Return String representation of TopicStatslinkcountValuesValues */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class TopicStatslinkcountValuesValuesValues {
-
-  core.int count;
-
-  core.String id;
-
-  /** Create new TopicStatslinkcountValuesValuesValues from JSON data */
-  TopicStatslinkcountValuesValuesValues.fromJson(core.Map json) {
-    if (json.containsKey("count")) {
-      count = json["count"];
-    }
-    if (json.containsKey("id")) {
-      id = json["id"];
-    }
-  }
-
-  /** Create JSON Object for TopicStatslinkcountValuesValuesValues */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (count != null) {
-      output["count"] = count;
-    }
-    if (id != null) {
-      output["id"] = id;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of TopicStatslinkcountValuesValuesValues */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-class TopicValue {
-
-  TopicValueCitation citation;
-
-  core.String creator;
-
-  core.String dataset;
-
-  core.String id;
-
+  /** Language code that candidate and notable names are displayed in. */
   core.String lang;
 
-  core.String project;
+  /** Freebase MID of candidate entity. */
+  core.String mid;
 
-  core.Map<core.String, TopicPropertyvalue> property;
+  /** Freebase name of matching entity in specified language. */
+  core.String name;
 
-  core.String text;
+  /** Type or profession the candidate is notable for. */
+  ReconcileCandidateNotable notable;
 
-  core.String timestamp;
-
-  core.Object value;
-
-  /** Create new TopicValue from JSON data */
-  TopicValue.fromJson(core.Map json) {
-    if (json.containsKey("citation")) {
-      citation = new TopicValueCitation.fromJson(json["citation"]);
-    }
-    if (json.containsKey("creator")) {
-      creator = json["creator"];
-    }
-    if (json.containsKey("dataset")) {
-      dataset = json["dataset"];
-    }
-    if (json.containsKey("id")) {
-      id = json["id"];
+  /** Create new ReconcileCandidate from JSON data */
+  ReconcileCandidate.fromJson(core.Map json) {
+    if (json.containsKey("confidence")) {
+      confidence = json["confidence"];
     }
     if (json.containsKey("lang")) {
       lang = json["lang"];
     }
-    if (json.containsKey("project")) {
-      project = json["project"];
+    if (json.containsKey("mid")) {
+      mid = json["mid"];
     }
-    if (json.containsKey("property")) {
-      property = _mapMap(json["property"], (propertyItem) => new TopicPropertyvalue.fromJson(propertyItem));
+    if (json.containsKey("name")) {
+      name = json["name"];
     }
-    if (json.containsKey("text")) {
-      text = json["text"];
-    }
-    if (json.containsKey("timestamp")) {
-      timestamp = json["timestamp"];
-    }
-    if (json.containsKey("value")) {
-      value = json["value"];
+    if (json.containsKey("notable")) {
+      notable = new ReconcileCandidateNotable.fromJson(json["notable"]);
     }
   }
 
-  /** Create JSON Object for TopicValue */
+  /** Create JSON Object for ReconcileCandidate */
   core.Map toJson() {
     var output = new core.Map();
 
-    if (citation != null) {
-      output["citation"] = citation.toJson();
-    }
-    if (creator != null) {
-      output["creator"] = creator;
-    }
-    if (dataset != null) {
-      output["dataset"] = dataset;
-    }
-    if (id != null) {
-      output["id"] = id;
+    if (confidence != null) {
+      output["confidence"] = confidence;
     }
     if (lang != null) {
       output["lang"] = lang;
     }
-    if (project != null) {
-      output["project"] = project;
+    if (mid != null) {
+      output["mid"] = mid;
     }
-    if (property != null) {
-      output["property"] = _mapMap(property, (propertyItem) => propertyItem.toJson());
+    if (name != null) {
+      output["name"] = name;
     }
-    if (text != null) {
-      output["text"] = text;
-    }
-    if (timestamp != null) {
-      output["timestamp"] = timestamp;
-    }
-    if (value != null) {
-      output["value"] = value;
+    if (notable != null) {
+      output["notable"] = notable.toJson();
     }
 
     return output;
   }
 
-  /** Return String representation of TopicValue */
-  core.String toString() => JSON.stringify(this.toJson());
+  /** Return String representation of ReconcileCandidate */
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
-class TopicValueCitation {
+/** Type or profession the candidate is notable for. */
+class ReconcileCandidateNotable {
 
-  core.String provider;
+  /** MID of notable category. */
+  core.String id;
 
-  core.String statement;
+  /** Name of notable category in specified language. */
+  core.String name;
 
-  core.String uri;
-
-  /** Create new TopicValueCitation from JSON data */
-  TopicValueCitation.fromJson(core.Map json) {
-    if (json.containsKey("provider")) {
-      provider = json["provider"];
+  /** Create new ReconcileCandidateNotable from JSON data */
+  ReconcileCandidateNotable.fromJson(core.Map json) {
+    if (json.containsKey("id")) {
+      id = json["id"];
     }
-    if (json.containsKey("statement")) {
-      statement = json["statement"];
-    }
-    if (json.containsKey("uri")) {
-      uri = json["uri"];
+    if (json.containsKey("name")) {
+      name = json["name"];
     }
   }
 
-  /** Create JSON Object for TopicValueCitation */
+  /** Create JSON Object for ReconcileCandidateNotable */
   core.Map toJson() {
     var output = new core.Map();
 
-    if (provider != null) {
-      output["provider"] = provider;
+    if (id != null) {
+      output["id"] = id;
     }
-    if (statement != null) {
-      output["statement"] = statement;
-    }
-    if (uri != null) {
-      output["uri"] = uri;
+    if (name != null) {
+      output["name"] = name;
     }
 
     return output;
   }
 
-  /** Return String representation of TopicValueCitation */
-  core.String toString() => JSON.stringify(this.toJson());
+  /** Return String representation of ReconcileCandidateNotable */
+  core.String toString() => JSON.encode(this.toJson());
+
+}
+
+class ReconcileGet {
+
+  /** If filled, then the listed candidates are potential matches, and such should be evaluated by a more discerning algorithm or human. The matches are ordered by confidence. */
+  core.List<ReconcileCandidate> candidate;
+
+  /** Server costs for reconciling. */
+  ReconcileGetCosts costs;
+
+  /** If filled, this entity is guaranteed to match at requested confidence probability (default 99%). */
+  ReconcileCandidate match;
+
+  /** If filled, then there were recoverable problems that affected the request. For example, some of the properties were ignored because they either are not valid Freebase predicates or are not indexed for reconciliation. The candidates returned should be considered valid results, with the caveat that sections of the request were ignored as specified by the warning text. */
+  core.List<ReconcileGetWarning> warning;
+
+  /** Create new ReconcileGet from JSON data */
+  ReconcileGet.fromJson(core.Map json) {
+    if (json.containsKey("candidate")) {
+      candidate = json["candidate"].map((candidateItem) => new ReconcileCandidate.fromJson(candidateItem)).toList();
+    }
+    if (json.containsKey("costs")) {
+      costs = new ReconcileGetCosts.fromJson(json["costs"]);
+    }
+    if (json.containsKey("match")) {
+      match = new ReconcileCandidate.fromJson(json["match"]);
+    }
+    if (json.containsKey("warning")) {
+      warning = json["warning"].map((warningItem) => new ReconcileGetWarning.fromJson(warningItem)).toList();
+    }
+  }
+
+  /** Create JSON Object for ReconcileGet */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (candidate != null) {
+      output["candidate"] = candidate.map((candidateItem) => candidateItem.toJson()).toList();
+    }
+    if (costs != null) {
+      output["costs"] = costs.toJson();
+    }
+    if (match != null) {
+      output["match"] = match.toJson();
+    }
+    if (warning != null) {
+      output["warning"] = warning.map((warningItem) => warningItem.toJson()).toList();
+    }
+
+    return output;
+  }
+
+  /** Return String representation of ReconcileGet */
+  core.String toString() => JSON.encode(this.toJson());
+
+}
+
+/** Server costs for reconciling. */
+class ReconcileGetCosts {
+
+  /** Total number of hits found. */
+  core.int hits;
+
+  /** Total milliseconds spent. */
+  core.int ms;
+
+  /** Create new ReconcileGetCosts from JSON data */
+  ReconcileGetCosts.fromJson(core.Map json) {
+    if (json.containsKey("hits")) {
+      hits = json["hits"];
+    }
+    if (json.containsKey("ms")) {
+      ms = json["ms"];
+    }
+  }
+
+  /** Create JSON Object for ReconcileGetCosts */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (hits != null) {
+      output["hits"] = hits;
+    }
+    if (ms != null) {
+      output["ms"] = ms;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of ReconcileGetCosts */
+  core.String toString() => JSON.encode(this.toJson());
+
+}
+
+class ReconcileGetWarning {
+
+  /** Location of warning in the request e.g. invalid predicate. */
+  core.String location;
+
+  /** Warning message to display to the user. */
+  core.String message;
+
+  /** Code for identifying classes of warnings. */
+  core.String reason;
+
+  /** Create new ReconcileGetWarning from JSON data */
+  ReconcileGetWarning.fromJson(core.Map json) {
+    if (json.containsKey("location")) {
+      location = json["location"];
+    }
+    if (json.containsKey("message")) {
+      message = json["message"];
+    }
+    if (json.containsKey("reason")) {
+      reason = json["reason"];
+    }
+  }
+
+  /** Create JSON Object for ReconcileGetWarning */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (location != null) {
+      output["location"] = location;
+    }
+    if (message != null) {
+      output["message"] = message;
+    }
+    if (reason != null) {
+      output["reason"] = reason;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of ReconcileGetWarning */
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 

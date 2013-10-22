@@ -4,9 +4,9 @@
 
 Auto-generated client library for accessing the freebase v1 API.
 
-#### ![Logo](http://www.google.com/images/icons/product/freebase-16.png) Freebase API - freebase v1
+#### ![Logo](http://www.google.com/images/icons/product/freebase-16.png) Freebase Search - freebase v1
 
-Topic and MQL APIs provide you structured access to Freebase data.
+Find Freebase entities using textual queries and other constraints.
 
 Official API documentation: https://developers.google.com/freebase/
 
@@ -14,7 +14,7 @@ Adding dependency to pubspec.yaml
 
 ```
   dependencies:
-    google_freebase_v1_api: '>=0.3.8'
+    google_freebase_v1_api: '>=0.4.9'
 ```
 
 For web applications:
