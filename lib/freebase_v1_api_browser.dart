@@ -6,6 +6,7 @@ import 'package:google_freebase_v1_api/src/browser_client.dart';
 import "package:google_freebase_v1_api/freebase_v1_api_client.dart";
 
 /** Find Freebase entities using textual queries and other constraints. */
+@deprecated
 class Freebase extends Client with BrowserClient {
 
   final oauth.OAuth2 auth;

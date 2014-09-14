@@ -7,6 +7,7 @@ import 'package:google_freebase_v1_api/src/console_client.dart';
 import "package:google_freebase_v1_api/freebase_v1_api_client.dart";
 
 /** Find Freebase entities using textual queries and other constraints. */
+@deprecated
 class Freebase extends Client with ConsoleClient {
 
   final oauth2.OAuth2Console auth;
